@@ -12,14 +12,13 @@ using System.Threading.Tasks;
 
 namespace ExchangeRate.Tests.Infrastructure.ExchangeProvider.CurrencyDataAPIRatesApi
 {
-    //Choosen to created one call because have limited number of calls to api. 
+    //Choosen to created one call because have limited number of calls to api. and at this time don't have time to create mock.
     public class ClientTests
     {
         private GetExchangeRateConfiguration config;
         private ExchangeRateApiClient<GetExchangeRateRequest, GetExchangeRateResponse, GetExchangeRateConfiguration> actionClient;
         private GetExchangeRateRequest request;
         private GetExchangeRateResponse response;
-        private readonly IOptions<ExchangeRateApiClientSettings> _options;
 
         [OneTimeSetUp]
         public void Setup()
