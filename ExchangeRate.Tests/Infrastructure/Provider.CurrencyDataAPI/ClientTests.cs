@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.Tests.Infrastructure.ExchangeRatesApi
+namespace ExchangeRate.Tests.Infrastructure.ExchangeProvider.CurrencyDataAPIRatesApi
 {
     //Choosen to created one call because have limited number of calls to api. 
     public class ClientTests

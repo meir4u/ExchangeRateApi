@@ -31,7 +31,7 @@ namespace ExchangeRate.Provider.CurrencyDataAPI.Mapper
                 CurrencyExchangeRateDto = new CurrencyExchangeRateDto()
                 {
                     CurrencyFrom = enumParser(updateCurrencyExchangeRateDto.source),
-                    CurrencyTo = enumParser(updateCurrencyExchangeRateDto.quotes.FirstOrDefault().Key),
+                    CurrencyTo = enumParser(updateCurrencyExchangeRateDto.quotes.FirstOrDefault().Key.Replace(updateCurrencyExchangeRateDto.source, "")),
                     ExchangeRate = updateCurrencyExchangeRateDto.quotes.FirstOrDefault().Value,
                     UpdatedAt = DateTime.Now
                 },

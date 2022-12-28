@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.Tests.Infrastructure.ExchangeRatesApi.Moq
+namespace ExchangeRate.Tests.Infrastructure.Provider.CurrencyDataAPI.Moq
 {
     public class GetExchangeRateConfigurationMoq
     {
