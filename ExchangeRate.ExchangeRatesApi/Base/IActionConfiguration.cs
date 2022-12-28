@@ -9,8 +9,6 @@ namespace ExchangeRate.Provider.CurrencyDataAPI.Base
 {
     public interface IActionConfiguration
     {
-        string AppKey { get; }
-        string BaseUrl { get; }
         string ApiUrl { get; }
         Method MethodType { get; }
     }

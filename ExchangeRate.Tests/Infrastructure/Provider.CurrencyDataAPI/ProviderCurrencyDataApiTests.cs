@@ -2,6 +2,10 @@
 using ExchangeRate.Application.Futures.CurrencyExchangeRate.Responses;
 using ExchangeRate.Provider.CurrencyDataAPI;
 using ExchangeRate.Provider.CurrencyDataAPI.Actions.GetExchangeRate;
+using ExchangeRate.Provider.CurrencyDataAPI.Base;
+using ExchangeRate.Provider.CurrencyDataAPI.Client;
+using Microsoft.Extensions.Options;
+using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -19,8 +23,17 @@ namespace ExchangeRate.Tests.Infrastructure.Provider.CurrencyDataAPI
         [OneTimeSetUp]
         public void Setup()
         {
+            var BaseUrl = "https://api.apilayer.com/currency_data/";
+            var MaxTimeout = -1;
+            var AppKey = "HO37bxfEq5zthZF6xwhX9T3fAJMc3Loc";
+
+            var settings = new Mock<IOptions<IExchangeRateApiClientSettings>>();
+            settings.Setup(p => p.Value.AppKey).Returns(AppKey);
+            settings.Setup(p => p.Value.MaxTimeout).Returns(MaxTimeout);
+            settings.Setup(p => p.Value.BaseUrl).Returns(BaseUrl);
+
             var config = new GetExchangeRateConfiguration();
-            var actionClient = new GetExchangeRateAction(config);
+            var actionClient = new GetExchangeRateAction(config, settings.Object);
             var providerApi = new ExchangeRatesApiProvider(actionClient);
 
             this.request = new UpdateCurrencyExchangeRateDto()
