@@ -1,14 +1,14 @@
 ﻿using ExchangeRate.Application.DTOs.CurrencyExchangeRate;
 using ExchangeRate.Application.Futures.CurrencyExchangeRate.Responses;
 using ExchangeRate.Domain;
-using ExchangeRate.ExchangeRatesApi.Actions.GetExchangeRate;
+using ExchangeRate.CurrencyDataAPI.Actions.GetExchangeRate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.ExchangeRatesApi.Mapper
+namespace ExchangeRate.CurrencyDataAPI.Mapper
 {
     public static class GetExchangeRateMapper
     {
@@ -30,9 +30,9 @@ namespace ExchangeRate.ExchangeRatesApi.Mapper
             {
                 CurrencyExchangeRateDto = new CurrencyExchangeRateDto()
                 {
-                    CurrencyFrom = enumParser(updateCurrencyExchangeRateDto.@base),
-                    CurrencyTo = enumParser(updateCurrencyExchangeRateDto.rates.FirstOrDefault().Key),
-                    ExchangeRate = updateCurrencyExchangeRateDto.rates.FirstOrDefault().Value,
+                    CurrencyFrom = enumParser(updateCurrencyExchangeRateDto.source),
+                    CurrencyTo = enumParser(updateCurrencyExchangeRateDto.quotes.FirstOrDefault().Key),
+                    ExchangeRate = updateCurrencyExchangeRateDto.quotes.FirstOrDefault().Value,
                     UpdatedAt = DateTime.Now
                 },
                 Success = true

@@ -1,6 +1,6 @@
-﻿using ExchangeRate.ExchangeRatesApi.Actions.GetExchangeRate;
-using ExchangeRate.ExchangeRatesApi.Base;
-using ExchangeRate.ExchangeRatesApi.Client;
+﻿using ExchangeRate.CurrencyDataAPI.Actions.GetExchangeRate;
+using ExchangeRate.CurrencyDataAPI.Base;
+using ExchangeRate.CurrencyDataAPI.Client;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -33,6 +33,10 @@ namespace ExchangeRate.Tests.Infrastructure.ExchangeRatesApi
 
             var response = Task.Run(() => actionClient.Execute(request)).Result;
             Assert.That(response, Is.Not.Null);
+            Assert.That(response.source, Is.EqualTo(request.CurrencyFrom.ToString()));
+            Assert.That(response.quotes, Is.Not.Empty);
+            Assert.That(response.quotes.ContainsKey($"{request.CurrencyFrom.ToString().ToUpper()}{request.CurrencyTo.ToString().ToUpper()}"), Is.True);
+            Assert.That(response.quotes[$"{request.CurrencyFrom.ToString().ToUpper()}{request.CurrencyTo.ToString().ToUpper()}"], Is.GreaterThan(0));
         }
     }
 }

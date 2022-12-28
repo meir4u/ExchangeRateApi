@@ -1,4 +1,4 @@
-﻿using ExchangeRate.ExchangeRatesApi.Base;
+﻿using ExchangeRate.CurrencyDataAPI.Base;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.ExchangeRatesApi.Client
+namespace ExchangeRate.CurrencyDataAPI.Client
 {
     public abstract class ExchangeRateApiClient<TReq, TRes, TConfiguration> : IAction<TReq, TRes, TConfiguration>
         where TReq : IActionRequest
@@ -31,9 +31,9 @@ namespace ExchangeRate.ExchangeRatesApi.Client
             option.MaxTimeout = -1;
 
             var client = new RestClient(option);
-            var clinetRequest = new RestRequest(configuration.ApiUrl + configuration.AppKey + request.UrlQuery, method: configuration.MethodType);
+            var resourse = configuration.ApiUrl + configuration.AppKey + request.UrlQuery + $"&date={DateTime.Now.ToString("yyyy-MM-dd")}";
+            var clinetRequest = new RestRequest(resourse, method: configuration.MethodType);
             clinetRequest.AddHeader("apikey", configuration.AppKey);
-            //clinetRequest.AddHeader("Content-Type", "text/plain");
 
             var restResponse = await client.ExecuteAsync(clinetRequest);
             if(restResponse.ResponseStatus == ResponseStatus.Completed && restResponse.IsSuccessful) 

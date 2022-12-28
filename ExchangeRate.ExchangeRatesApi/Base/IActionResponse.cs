@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.ExchangeRatesApi.Base
+namespace ExchangeRate.CurrencyDataAPI.Base
 {
     public interface IActionResponse
     {
-        string @base { get; set; }
-        string date { get; set; }
-        Dictionary<string, decimal> rates { get; set; }
+        string source { get; set; }
+        Dictionary<string, decimal> quotes { get; set; }
         bool success { get; set; }
         int timestamp { get; set; }
     }

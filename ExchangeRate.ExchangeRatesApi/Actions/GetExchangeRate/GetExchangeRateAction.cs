@@ -1,12 +1,12 @@
-﻿using ExchangeRate.ExchangeRatesApi.Base;
+﻿using ExchangeRate.CurrencyDataAPI.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ExchangeRate.ExchangeRatesApi.Client;
+using ExchangeRate.CurrencyDataAPI.Client;
 
-namespace ExchangeRate.ExchangeRatesApi.Actions.GetExchangeRate
+namespace ExchangeRate.CurrencyDataAPI.Actions.GetExchangeRate
 {
     public class GetExchangeRateAction : ExchangeRateApiClient<GetExchangeRateRequest, GetExchangeRateResponse, GetExchangeRateConfiguration>
     {

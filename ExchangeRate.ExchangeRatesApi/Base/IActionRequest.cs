@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.ExchangeRatesApi.Base
+namespace ExchangeRate.CurrencyDataAPI.Base
 {
     public interface IActionRequest
     {
