@@ -1,14 +1,14 @@
 ﻿using ExchangeRate.Application.DTOs.CurrencyExchangeRate;
 using ExchangeRate.Application.Futures.CurrencyExchangeRate.Responses;
 using ExchangeRate.Domain;
-using ExchangeRate.CurrencyDataAPI.Actions.GetExchangeRate;
+using ExchangeRate.Provider.CurrencyDataAPI.Actions.GetExchangeRate;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.CurrencyDataAPI.Mapper
+namespace ExchangeRate.Provider.CurrencyDataAPI.Mapper
 {
     public static class GetExchangeRateMapper
     {

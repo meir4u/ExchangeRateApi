@@ -1,5 +1,5 @@
-﻿using ExchangeRate.CurrencyDataAPI.Actions.GetExchangeRate;
-using ExchangeRate.CurrencyDataAPI.Base;
+﻿using ExchangeRate.Provider.CurrencyDataAPI.Actions.GetExchangeRate;
+using ExchangeRate.Provider.CurrencyDataAPI.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;

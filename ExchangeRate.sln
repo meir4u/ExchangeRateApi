@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRate.MVC", "Exchang
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRate.Api", "ExchangeRate.Api\ExchangeRate.Api.csproj", "{D8B1944E-C63F-42F8-8EE5-86D2B4D78611}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRate.CurrencyDataAPI", "ExchangeRate.ExchangeRatesApi\ExchangeRate.CurrencyDataAPI.csproj", "{6BC8E97F-C236-428D-8064-AF7BED4F8E64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRate.Provider.CurrencyDataAPI", "ExchangeRate.ExchangeRatesApi\ExchangeRate.Provider.CurrencyDataAPI.csproj", "{6BC8E97F-C236-428D-8064-AF7BED4F8E64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRate.Tests", "ExchangeRate.Tests\ExchangeRate.Tests.csproj", "{FAEF52F2-A8E3-4773-98B7-04EDDA46B168}"
 EndProject

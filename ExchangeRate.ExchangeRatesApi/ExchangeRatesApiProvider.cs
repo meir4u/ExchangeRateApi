@@ -1,13 +1,13 @@
 ﻿using ExchangeRate.Application.Contract.Infrastructure;
 using ExchangeRate.Application.DTOs.CurrencyExchangeRate;
 using ExchangeRate.Application.Futures.CurrencyExchangeRate.Responses;
-using ExchangeRate.CurrencyDataAPI.Actions.GetExchangeRate;
-using ExchangeRate.CurrencyDataAPI.Client;
-using ExchangeRate.CurrencyDataAPI.Mapper;
+using ExchangeRate.Provider.CurrencyDataAPI.Actions.GetExchangeRate;
+using ExchangeRate.Provider.CurrencyDataAPI.Client;
+using ExchangeRate.Provider.CurrencyDataAPI.Mapper;
 using System;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.CurrencyDataAPI
+namespace ExchangeRate.Provider.CurrencyDataAPI
 {
     public class ExchangeRatesApiProvider : IExchangeRatesApiProvider
     {

@@ -1,6 +1,6 @@
-﻿using ExchangeRate.CurrencyDataAPI.Actions.GetExchangeRate;
-using ExchangeRate.CurrencyDataAPI.Base;
-using ExchangeRate.CurrencyDataAPI.Client;
+﻿using ExchangeRate.Provider.CurrencyDataAPI.Actions.GetExchangeRate;
+using ExchangeRate.Provider.CurrencyDataAPI.Base;
+using ExchangeRate.Provider.CurrencyDataAPI.Client;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

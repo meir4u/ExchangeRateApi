@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
-namespace ExchangeRate.CurrencyDataAPI
+namespace ExchangeRate.Provider.CurrencyDataAPI
 {
     public static class ExchangeRatesApiServiceRegistration
     {

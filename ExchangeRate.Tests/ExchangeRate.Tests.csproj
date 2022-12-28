@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExchangeRate.ExchangeRatesApi\ExchangeRate.CurrencyDataAPI.csproj" />
+    <ProjectReference Include="..\ExchangeRate.ExchangeRatesApi\ExchangeRate.Provider.CurrencyDataAPI.csproj" />
   </ItemGroup>
 
 </Project>

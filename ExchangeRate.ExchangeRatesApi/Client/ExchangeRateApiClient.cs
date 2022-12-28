@@ -1,4 +1,4 @@
-﻿using ExchangeRate.CurrencyDataAPI.Base;
+﻿using ExchangeRate.Provider.CurrencyDataAPI.Base;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExchangeRate.CurrencyDataAPI.Client
+namespace ExchangeRate.Provider.CurrencyDataAPI.Client
 {
     public abstract class ExchangeRateApiClient<TReq, TRes, TConfiguration> : IAction<TReq, TRes, TConfiguration>
         where TReq : IActionRequest
