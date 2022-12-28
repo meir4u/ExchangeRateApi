@@ -10,32 +10,61 @@ using System.Threading.Tasks;
 
 namespace ExchangeRate.Tests.Infrastructure.ExchangeRatesApi
 {
+    //Choosen to created one call because have limited number of calls to api. 
     public class ClientTests
     {
         private GetExchangeRateConfiguration config;
         private ExchangeRateApiClient<GetExchangeRateRequest, GetExchangeRateResponse, GetExchangeRateConfiguration> actionClient;
+        private GetExchangeRateRequest request;
+        private GetExchangeRateResponse response;
 
-        [SetUp]
+        [OneTimeSetUp]
         public void Setup()
         {
             this.config = new GetExchangeRateConfiguration();
             this.actionClient = new GetExchangeRateAction(config);
-        }
 
-        [Test]
-        public void Valid_Request_Response_Not_Null_Test()
-        {
-            GetExchangeRateRequest request = new GetExchangeRateRequest()
+            this.request = new GetExchangeRateRequest()
             {
                 CurrencyFrom = Domain.EApi.Currency.USD,
                 CurrencyTo = Domain.EApi.Currency.GBP
             };
 
-            var response = Task.Run(() => actionClient.Execute(request)).Result;
+            this.response = Task.Run(() => actionClient.Execute(request)).Result;
+        }
+
+        [Test]
+        [Order(1)]
+        public void Valid_Request_Response_Not_Null_Test()
+        {
             Assert.That(response, Is.Not.Null);
+        }
+
+        [Test]
+        [Order(2)]
+        public void Valid_Request_Response_And_Response_source_Same_Test()
+        {
             Assert.That(response.source, Is.EqualTo(request.CurrencyFrom.ToString()));
+        }
+
+        [Test]
+        [Order(3)]
+        public void Valid_Request_Response_Quotes_Not_Empty_Test()
+        {
             Assert.That(response.quotes, Is.Not.Empty);
+        }
+
+        [Test]
+        [Order(4)]
+        public void Valid_Request_Response_Quotes_Contain_Requested_Key_Test()
+        {
             Assert.That(response.quotes.ContainsKey($"{request.CurrencyFrom.ToString().ToUpper()}{request.CurrencyTo.ToString().ToUpper()}"), Is.True);
+        }
+
+        [Test]
+        [Order(5)]
+        public void Valid_Request_Response_Quotes_Value_Bigger_Then_Zero_Test()
+        {
             Assert.That(response.quotes[$"{request.CurrencyFrom.ToString().ToUpper()}{request.CurrencyTo.ToString().ToUpper()}"], Is.GreaterThan(0));
         }
     }
