@@ -14,26 +14,28 @@ namespace ExchangeRate.Provider.CurrencyDataAPI.Client
         where TRes : IActionResponse
         where TConfiguration : IActionConfiguration
     {
-        private readonly TConfiguration configuration;
+        private readonly TConfiguration _configuration;
 
         public ExchangeRateApiClient(
             TConfiguration configuration
             )
         {
-            this.configuration = configuration;
+            this._configuration = configuration;
         }
         public async Task<TRes> Execute(TReq request)
         {
             TRes response = default(TRes);
-
             var option = new RestClientOptions();
-            option.BaseUrl = new Uri(configuration.BaseUrl);
+            option.BaseUrl = new Uri(_configuration.BaseUrl);
             option.MaxTimeout = -1;
 
             var client = new RestClient(option);
-            var resourse = configuration.ApiUrl + configuration.AppKey + request.UrlQuery + $"&date={DateTime.Now.ToString("yyyy-MM-dd")}";
-            var clinetRequest = new RestRequest(resourse, method: configuration.MethodType);
-            clinetRequest.AddHeader("apikey", configuration.AppKey);
+
+
+            var resourse = _configuration.ApiUrl + _configuration.AppKey + request.UrlQuery + $"&date={DateTime.Now.ToString("yyyy-MM-dd")}";
+            var clinetRequest = new RestRequest(resourse, method: _configuration.MethodType);
+            clinetRequest.Timeout = -1;
+            clinetRequest.AddHeader("apikey", _configuration.AppKey);
 
             var restResponse = await client.ExecuteAsync(clinetRequest);
             if(restResponse.ResponseStatus == ResponseStatus.Completed && restResponse.IsSuccessful) 
@@ -41,6 +43,7 @@ namespace ExchangeRate.Provider.CurrencyDataAPI.Client
                 string content = restResponse.Content;
                 response = JsonConvert.DeserializeObject<TRes>(content);
             }
+            client.Dispose();
             return response;
         }
     }
