@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExchangeRate.Application\ExchangeRate.Application.csproj" />
+    <ProjectReference Include="..\ExchangeRate.Infrastructure\ExchangeRate.Infrastructure.csproj" />
+    <ProjectReference Include="..\ExchangeRate.Persistence\ExchangeRate.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
