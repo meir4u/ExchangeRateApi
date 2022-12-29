@@ -9,6 +9,7 @@ namespace ExchangeRate.Application.DTOs.CurrencyExchangeRate
     [Serializable]
     public class CurrencyExchangeRateDto : ICurrencyExchangeRateDto
     {
+        public string CoupleName { get=> $"{CurrencyFrom}/{CurrencyTo}"; }
         public EApi.Currency CurrencyFrom { get; set; }
         public EApi.Currency CurrencyTo { get; set; }
         public decimal ExchangeRate { get; set; }
