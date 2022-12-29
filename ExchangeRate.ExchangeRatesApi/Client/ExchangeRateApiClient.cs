@@ -15,11 +15,11 @@ namespace ExchangeRate.Provider.CurrencyDataAPI.Client
         where TRes : IActionResponse
         where TConfiguration : IActionConfiguration
     {
-        private readonly IOptions<IExchangeRateApiClientSettings> _options;
+        private readonly IOptions<ExchangeRateApiClientSettings> _options;
         private readonly TConfiguration _configuration;
 
         public ExchangeRateApiClient(
-            IOptions<IExchangeRateApiClientSettings> options,
+            IOptions<ExchangeRateApiClientSettings> options,
             TConfiguration configuration
             )
         {

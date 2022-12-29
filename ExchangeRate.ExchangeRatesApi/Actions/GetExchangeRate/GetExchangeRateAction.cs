@@ -11,8 +11,8 @@ namespace ExchangeRate.Provider.CurrencyDataAPI.Actions.GetExchangeRate
 {
     public class GetExchangeRateAction : ExchangeRateApiClient<GetExchangeRateRequest, GetExchangeRateResponse, GetExchangeRateConfiguration>
     {
-        public GetExchangeRateAction(GetExchangeRateConfiguration getExchangeRateConfiguration, IOptions<IExchangeRateApiClientSettings> options)
-            :base(options, getExchangeRateConfiguration)
+        public GetExchangeRateAction(IOptions<ExchangeRateApiClientSettings> options)
+            :base(options, new GetExchangeRateConfiguration())
         {
 
         }

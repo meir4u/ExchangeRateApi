@@ -6,6 +6,7 @@ using System.Text;
 
 namespace ExchangeRate.Application.DTOs.CurrencyExchangeRate
 {
+    [Serializable]
     public class CurrencyExchangeRateDto : ICurrencyExchangeRateDto
     {
         public EApi.Currency CurrencyFrom { get; set; }

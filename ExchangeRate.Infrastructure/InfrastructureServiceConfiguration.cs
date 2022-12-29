@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using ExchangeRate.Infrastructure.BackgroundServices.UpdateCurrencies;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,9 @@ namespace ExchangeRate.Infrastructure
     {
         public static IServiceCollection ConfigurationInfrastructureService(this IServiceCollection service, IConfiguration configuration)
         {
-            //service.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
-
+            service.Configure<UpdateCurrenciesBackgroundServiceSettings>(configuration.GetSection("UpdateCurrenciesBackgroundServiceSettings"));
+            // Register Hosted Services
+            service.AddHostedService<UpdateCurrenciesBackgroundService>();
             return service;
         }
     }

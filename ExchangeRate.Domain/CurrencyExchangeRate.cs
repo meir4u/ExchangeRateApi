@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ExchangeRate.Domain
 {
+    [Serializable]
     public class CurrencyExchangeRate
     {
         public EApi.Currency CurrencyFrom { get; set; }

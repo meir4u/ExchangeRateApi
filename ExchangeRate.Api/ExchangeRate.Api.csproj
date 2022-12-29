@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExchangeRate.Application\ExchangeRate.Application.csproj" />
+    <ProjectReference Include="..\ExchangeRate.ExchangeRatesApi\ExchangeRate.Provider.CurrencyDataAPI.csproj" />
     <ProjectReference Include="..\ExchangeRate.Infrastructure\ExchangeRate.Infrastructure.csproj" />
     <ProjectReference Include="..\ExchangeRate.Persistence\ExchangeRate.Persistence.csproj" />
   </ItemGroup>

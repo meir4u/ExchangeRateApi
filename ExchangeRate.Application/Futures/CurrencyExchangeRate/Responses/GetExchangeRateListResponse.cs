@@ -8,6 +8,6 @@ namespace ExchangeRate.Application.Futures.CurrencyExchangeRate.Responses
 {
     public class GetExchangeRateListResponse : BaseCommandResponse
     {
-        public List<CurrencyExchangeRateDto> LeaveTypeDtos { get; set; }
+        public List<CurrencyExchangeRateDto> CurrencyExchangeRateDto { get; set; }
     }
 }
